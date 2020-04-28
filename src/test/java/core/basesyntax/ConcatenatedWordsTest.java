@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,6 +13,7 @@ public class ConcatenatedWordsTest {
     private final static String SECOND_LONGEST_CONCATENATED_WORD = "catsdogcats";
     private final static String NO_CONCATENATED_WORD = "";
     private final static Integer TOTAL_COUNT_OF_CONCATENATED_WORDS = 3;
+    private final static Integer TOTAL_COUNT_WHEN_NO_CONCATENATED_WORDS = 0;
     private final static String[] ARRAY_OF_WORDS = {"cat", "cats", "catsdogcats",
             "dog", "hippopotamuses", "rat",
             "ratcatdogcat", "dogcatsdog"};
@@ -30,17 +31,14 @@ public class ConcatenatedWordsTest {
 
     @Before
     public void init() {
-        listOfWords = new ArrayList<>();
-        Collections.addAll(listOfWords, ARRAY_OF_WORDS);
+        listOfWords = Arrays.asList(ARRAY_OF_WORDS);
 
         emptyListOfWords = new ArrayList<>();
 
-        listWithNoConcatenatedWords = new ArrayList<>();
-        Collections.addAll(listWithNoConcatenatedWords, ARRAY_OF_NOCONCATENATED_WORDS);
+        listWithNoConcatenatedWords = Arrays.asList(ARRAY_OF_NOCONCATENATED_WORDS);
 
-        listOfWordsWhereTheSameLengthOfConcatenatedWord = new ArrayList<>();
-        Collections.addAll(listOfWordsWhereTheSameLengthOfConcatenatedWord,
-                ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH);
+        listOfWordsWhereTheSameLengthOfConcatenatedWord = Arrays.
+                asList(ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH);
     }
 
     @Test
@@ -49,19 +47,28 @@ public class ConcatenatedWordsTest {
         Assert.assertEquals("The longest concatenated word expected: \"ratcatdogcat\". " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 LONGEST_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
+    }
 
+    @Test
+    public void longestConcatenatedWordWithEmptyList() {
         concatenatedWords = new ConcatenatedWords(emptyListOfWords);
         Assert.assertEquals("The answer for the longest concatenated " +
                         "word when empty list is empty string. " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
+    }
 
+    @Test
+    public void longestConcatenatedWordWhenNoConcatenatedWords() {
         concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
         Assert.assertEquals("The answer for the longest concatenated word " +
                         "when there aren't concatenated words in list is empty string. " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
+    }
 
+    @Test
+    public void longestConcatenatedWordWithSampleLength() {
         concatenatedWords = new ConcatenatedWords(listOfWordsWhereTheSameLengthOfConcatenatedWord);
         Assert.assertEquals("The answer for the longest concatenated word, " +
                         "when there are concatenated words with same length, is \"ratcatdogcat\". " +
@@ -76,19 +83,28 @@ public class ConcatenatedWordsTest {
         Assert.assertEquals("The second longest concatenated word expected: \"catsdogcats\". " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 SECOND_LONGEST_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
+    }
 
+    @Test
+    public void secondLongestConcatenatedWordWithEmptyList() {
         concatenatedWords = new ConcatenatedWords(emptyListOfWords);
         Assert.assertEquals("The answer for the second longest concatenated " +
                         "word when empty list is empty string. " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
+    }
 
+    @Test
+    public void secondLongestConcatenatedWordWhenNoConcatenatedWords() {
         concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
         Assert.assertEquals("The answer for the second longest concatenated word " +
                         "when there aren't concatenated words in list is empty string. " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
+    }
 
+    @Test
+    public void secondLongestConcatenatedWordWithSameLength() {
         concatenatedWords = new ConcatenatedWords(listOfWordsWhereTheSameLengthOfConcatenatedWord);
         Assert.assertEquals("The answer for the second longest concatenated word " +
                         "when there are concatenated words with same length is: \"catdogcatrat\". " +
@@ -104,18 +120,24 @@ public class ConcatenatedWordsTest {
                         "But got: " + concatenatedWords.totalCountOfAllTheConcatenatedWords(),
                 TOTAL_COUNT_OF_CONCATENATED_WORDS,
                 concatenatedWords.totalCountOfAllTheConcatenatedWords());
+    }
 
+    @Test
+    public void totalCountOfAllTheConcatenatedWordsWithEmptyList() {
         concatenatedWords = new ConcatenatedWords(emptyListOfWords);
         Assert.assertEquals("The total count of concatenated words in the empty list is: 0" +
                         "But got: " + concatenatedWords.totalCountOfAllTheConcatenatedWords(),
-                TOTAL_COUNT_OF_CONCATENATED_WORDS,
+                TOTAL_COUNT_WHEN_NO_CONCATENATED_WORDS,
                 concatenatedWords.totalCountOfAllTheConcatenatedWords());
+    }
 
+    @Test
+    public void totalCountOfAllTheConcatenatedWordsWhenNoConcatenatedWords() {
         concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
         Assert.assertEquals("The total count of concatenated words " +
                         "when there aren't concatenated words is: 0" +
                         "But got: " + concatenatedWords.totalCountOfAllTheConcatenatedWords(),
-                TOTAL_COUNT_OF_CONCATENATED_WORDS,
+                TOTAL_COUNT_WHEN_NO_CONCATENATED_WORDS,
                 concatenatedWords.totalCountOfAllTheConcatenatedWords());
     }
 }

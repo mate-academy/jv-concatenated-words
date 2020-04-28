@@ -3,7 +3,7 @@ package core.basesyntax;
 import java.util.List;
 
 public class ConcatenatedWords {
-    private List allWords;
+    private List<String> allWords;
 
     public ConcatenatedWords(List<String> allWords) {
         this.allWords = allWords;
