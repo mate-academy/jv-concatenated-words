@@ -5,7 +5,7 @@ import java.util.List;
 public class ConcatenatedWords {
     private List allWords;
 
-    public ConcatenatedWords(List allWords) {
+    public ConcatenatedWords(List<String> allWords) {
         this.allWords = allWords;
     }
 
