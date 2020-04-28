@@ -20,8 +20,8 @@ public class ConcatenatedWordsTest {
             "hippopotamuses", "rat",};
     private final static String[] ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH =
             {"cat", "cats", "catsdogcats",
-            "ratcatdogcat", "dog", "hippopotamuses",
-            "rat", "ratcatdogcat", "dogcatsdog"};
+                    "ratcatdogcat", "dog", "hippopotamuses",
+                    "rat", "ratcatdogcat", "dogcatsdog"};
     private List<String> listOfWords;
     private List<String> emptyListOfWords;
     private List<String> listWithNoConcatenatedWords;

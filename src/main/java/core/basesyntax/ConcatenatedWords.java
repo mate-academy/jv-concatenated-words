@@ -9,15 +9,15 @@ public class ConcatenatedWords {
         this.allWords = allWords;
     }
 
-    public String longestConcatenatedWord(){
+    public String longestConcatenatedWord() {
         return null;
     }
 
-    public String secondLongestConcatenatedWord(){
+    public String secondLongestConcatenatedWord() {
         return null;
     }
 
-    public Integer totalCountOfAllTheConcatenatedWords(){
+    public Integer totalCountOfAllTheConcatenatedWords() {
         return null;
     }
 }
