@@ -1,0 +1,23 @@
+package core.basesyntax;
+
+import java.util.List;
+
+public class ConcatenatedWords {
+    private List allWords;
+
+    public ConcatenatedWords(List allWords) {
+        this.allWords = allWords;
+    }
+
+    public String longestConcatenatedWord(){
+        return null;
+    }
+
+    public String secondLongestConcatenatedWord(){
+        return null;
+    }
+
+    public Integer totalCountOfAllTheConcatenatedWords(){
+        return null;
+    }
+}
