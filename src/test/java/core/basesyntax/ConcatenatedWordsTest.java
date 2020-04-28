@@ -50,21 +50,11 @@ public class ConcatenatedWordsTest {
     }
 
     @Test
-    public void longestConcatenatedWordWithEmptyList() {
-        concatenatedWords = new ConcatenatedWords(emptyListOfWords);
-        Assert.assertEquals("The answer for the longest concatenated " +
-                        "word when empty list is empty string. " +
-                        "But is: " + concatenatedWords.longestConcatenatedWord(),
-                NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
-    }
-
-    @Test
-    public void longestConcatenatedWordWhenNoConcatenatedWords() {
-        concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
-        Assert.assertEquals("The answer for the longest concatenated word " +
-                        "when there aren't concatenated words in list is empty string. " +
-                        "But is: " + concatenatedWords.longestConcatenatedWord(),
-                NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
+    public void secondLongestConcatenatedWord() {
+        concatenatedWords = new ConcatenatedWords(listOfWords);
+        Assert.assertEquals("The second longest concatenated word expected: \"catsdogcats\". " +
+                        "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
+                SECOND_LONGEST_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
     }
 
     @Test
@@ -75,32 +65,6 @@ public class ConcatenatedWordsTest {
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 LONGEST_CONCATENATED_WORD,
                 concatenatedWords.longestConcatenatedWord());
-    }
-
-    @Test
-    public void secondLongestConcatenatedWord() {
-        concatenatedWords = new ConcatenatedWords(listOfWords);
-        Assert.assertEquals("The second longest concatenated word expected: \"catsdogcats\". " +
-                        "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
-                SECOND_LONGEST_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
-    }
-
-    @Test
-    public void secondLongestConcatenatedWordWithEmptyList() {
-        concatenatedWords = new ConcatenatedWords(emptyListOfWords);
-        Assert.assertEquals("The answer for the second longest concatenated " +
-                        "word when empty list is empty string. " +
-                        "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
-                NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
-    }
-
-    @Test
-    public void secondLongestConcatenatedWordWhenNoConcatenatedWords() {
-        concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
-        Assert.assertEquals("The answer for the second longest concatenated word " +
-                        "when there aren't concatenated words in list is empty string. " +
-                        "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
-                NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
     }
 
     @Test
@@ -123,12 +87,48 @@ public class ConcatenatedWordsTest {
     }
 
     @Test
+    public void longestConcatenatedWordWithEmptyList() {
+        concatenatedWords = new ConcatenatedWords(emptyListOfWords);
+        Assert.assertEquals("The answer for the longest concatenated " +
+                        "word when empty list is empty string. " +
+                        "But is: " + concatenatedWords.longestConcatenatedWord(),
+                NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
+    }
+
+    @Test
+    public void secondLongestConcatenatedWordWithEmptyList() {
+        concatenatedWords = new ConcatenatedWords(emptyListOfWords);
+        Assert.assertEquals("The answer for the second longest concatenated " +
+                        "word when empty list is empty string. " +
+                        "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
+                NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
+    }
+
+    @Test
     public void totalCountOfAllTheConcatenatedWordsWithEmptyList() {
         concatenatedWords = new ConcatenatedWords(emptyListOfWords);
         Assert.assertEquals("The total count of concatenated words in the empty list is: 0" +
                         "But got: " + concatenatedWords.totalCountOfAllTheConcatenatedWords(),
                 TOTAL_COUNT_WHEN_NO_CONCATENATED_WORDS,
                 concatenatedWords.totalCountOfAllTheConcatenatedWords());
+    }
+
+    @Test
+    public void longestConcatenatedWordWhenNoConcatenatedWords() {
+        concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
+        Assert.assertEquals("The answer for the longest concatenated word " +
+                        "when there aren't concatenated words in list is empty string. " +
+                        "But is: " + concatenatedWords.longestConcatenatedWord(),
+                NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
+    }
+
+    @Test
+    public void secondLongestConcatenatedWordWhenNoConcatenatedWords() {
+        concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
+        Assert.assertEquals("The answer for the second longest concatenated word " +
+                        "when there aren't concatenated words in list is empty string. " +
+                        "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
+                NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
     }
 
     @Test
