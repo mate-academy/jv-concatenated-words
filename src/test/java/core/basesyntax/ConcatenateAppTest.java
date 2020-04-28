@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class ConcatenateAppTest {
 
-    private static final String WORDS_FILE = "src/test/java/resources/SameWordsFileTest.txt";
+    private static final String WORDS_FILE = "src/test/java/resources/WordsFileTest.txt";
     private static final String ALL_DIGITS_FILE = "src/test/java/resources/AllDigitalFileTest.txt";
     private static final String EMPTY_FILE = "src/test/java/resources/emptyFileTest" + ".txt";
     private static final String WITH_IDENTICAL_WORDS_LENGTH_FILE = "src/test/java/resources" +
