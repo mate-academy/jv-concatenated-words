@@ -16,25 +16,25 @@ public class ConcatenateAppTest {
     private static final String WITH_IDENTICAL_WORDS_LENGTH_FILE = "src/test/java/resources" +
             "/SomeIdenticalWordsLengthFileTest";
 
-    private static ConcatenateWordsInterface notEmptyChallengeSolver;
-    private static ConcatenateWordsInterface emptyChallengeSolver;
-    private static ConcatenateWordsInterface identicalLongestConcatenatedWord;
-    private static ConcatenateWordsInterface digitalConcatenatedWord;
+    private static ConcatenateWordsInterface notEmptyFileConcatenateWords;
+    private static ConcatenateWordsInterface emptyFileConcatenateWords;
+    private static ConcatenateWordsInterface identicalLengthFileConcatenatedWord;
+    private static ConcatenateWordsInterface allDigitalsFileConcatenatedWord;
 
     @BeforeClass
     public static void setUp() {
-        notEmptyChallengeSolver = new ConcatenateWordsApp();
-        digitalConcatenatedWord = new ConcatenateWordsApp();
-        emptyChallengeSolver = new ConcatenateWordsApp();
-        identicalLongestConcatenatedWord = new ConcatenateWordsApp();
+        notEmptyFileConcatenateWords = new ConcatenateWordsApp();
+        allDigitalsFileConcatenatedWord = new ConcatenateWordsApp();
+        emptyFileConcatenateWords = new ConcatenateWordsApp();
+        identicalLengthFileConcatenatedWord = new ConcatenateWordsApp();
     }
 
     @Test
     public void findLongestConcatenatedWordSuccess() {
-        notEmptyChallengeSolver.findConcatenateWords(WORDS_FILE);
-        List<String> actualFirstLongestConcatenatedWord = notEmptyChallengeSolver
+        notEmptyFileConcatenateWords.findConcatenateWords(WORDS_FILE);
+        List<String> actualFirstLongestConcatenatedWord = notEmptyFileConcatenateWords
                 .findFirstLongestConcatenatedWord();
-        List<String> actualSecondLongestConcatenatedWord = notEmptyChallengeSolver
+        List<String> actualSecondLongestConcatenatedWord = notEmptyFileConcatenateWords
                 .findSecondLongestConcatenatedWord();
         String expectedConcatenatedLongestWord = "dogcatsdoghippopotamuses";
         Assert.assertEquals("Expected longest concatenated word is \"dogcatsdoghippopotamuses\", "
@@ -51,7 +51,7 @@ public class ConcatenateAppTest {
     @Test
     public void getCountConcatenatedWordsFromWordsFile() {
         int expectedConcatWordsCount = 4;
-        int actualConcatWordsCount = notEmptyChallengeSolver.getConcatWordsCount();
+        int actualConcatWordsCount = notEmptyFileConcatenateWords.getConcatWordsCount();
         Assert.assertEquals("Expected concat words count is " + expectedConcatWordsCount + " but "
                 + "was" + actualConcatWordsCount, expectedConcatWordsCount, actualConcatWordsCount);
     }
@@ -59,7 +59,7 @@ public class ConcatenateAppTest {
     @Test
     public void getCountConcatenatedWordsFromEmptyFile() {
         int expectedConcatWordsCount = 0;
-        int actualConcatWordsCount = emptyChallengeSolver.getConcatWordsCount();
+        int actualConcatWordsCount = emptyFileConcatenateWords.getConcatWordsCount();
         Assert.assertEquals("Expected words concat counter is " + expectedConcatWordsCount + " , "
                 + "but was " + actualConcatWordsCount, expectedConcatWordsCount, actualConcatWordsCount);
     }
@@ -67,7 +67,7 @@ public class ConcatenateAppTest {
     @Test
     public void getCountConcatenatedWordsFromFileWithIdenticalLength() {
         int expectedConcatWordsCount = 4;
-        int actualConcatWordsCount = identicalLongestConcatenatedWord.getConcatWordsCount();
+        int actualConcatWordsCount = identicalLengthFileConcatenatedWord.getConcatWordsCount();
         Assert.assertEquals("Expected concat words count is " + expectedConcatWordsCount
                 + " but was " + actualConcatWordsCount, expectedConcatWordsCount,
                 actualConcatWordsCount);
@@ -76,7 +76,7 @@ public class ConcatenateAppTest {
     @Test
     public void getCountConcatenatedWordsFromFileWithOnlyDigits() {
         int expectedConcatWordsCount = 2;
-        int actualConcatWordsCount = digitalConcatenatedWord.getConcatWordsCount();
+        int actualConcatWordsCount = allDigitalsFileConcatenatedWord.getConcatWordsCount();
         Assert.assertEquals("Expected concat words count is " + expectedConcatWordsCount
                 + " but was " + actualConcatWordsCount, expectedConcatWordsCount,
                 actualConcatWordsCount);
@@ -85,9 +85,9 @@ public class ConcatenateAppTest {
     @Test
     public void findLongestConcatenatedDigitalSuccess() {
         final String expectedLongestDig = "12345";
-        digitalConcatenatedWord.findConcatenateWords(ALL_DIGITS_FILE);
+        allDigitalsFileConcatenatedWord.findConcatenateWords(ALL_DIGITS_FILE);
         List<String> actualLongestConcatenatedDigital =
-                digitalConcatenatedWord.findFirstLongestConcatenatedWord();
+                allDigitalsFileConcatenatedWord.findFirstLongestConcatenatedWord();
         Assert.assertEquals("Expected longest concatenated digital is \"12345\", but was "
                         + actualLongestConcatenatedDigital.get(0), expectedLongestDig,
                 actualLongestConcatenatedDigital.get(0));
@@ -95,11 +95,11 @@ public class ConcatenateAppTest {
 
     @Test(expected = NoSuchElementException.class)
     public void findLongestConcatenatedWordWithEmptyFile() {
-        emptyChallengeSolver.findConcatenateWords(EMPTY_FILE);
+        emptyFileConcatenateWords.findConcatenateWords(EMPTY_FILE);
         Assert.assertNull("Expected \"NoSuchElementException\".",
-                emptyChallengeSolver.findFirstLongestConcatenatedWord().get(0));
+                emptyFileConcatenateWords.findFirstLongestConcatenatedWord().get(0));
         Assert.assertNull("Expected \"NoSuchElementException\".",
-                emptyChallengeSolver.findSecondLongestConcatenatedWord().get(0));
+                emptyFileConcatenateWords.findSecondLongestConcatenatedWord().get(0));
     }
 
     @Test
@@ -107,10 +107,10 @@ public class ConcatenateAppTest {
         List<String> expectedResultsWithIdenticalLongestWords = new ArrayList<>(Arrays
                 .asList("dogcatsdog", "dogcatsdog", "dogcatsdog"));
         String expectedSecondLongestConcatenatedWord = "ratcatdog";
-        identicalLongestConcatenatedWord.findConcatenateWords(WITH_IDENTICAL_WORDS_LENGTH_FILE);
-        String actualSecondLongestWord = identicalLongestConcatenatedWord
+        identicalLengthFileConcatenatedWord.findConcatenateWords(WITH_IDENTICAL_WORDS_LENGTH_FILE);
+        String actualSecondLongestWord = identicalLengthFileConcatenatedWord
                 .findSecondLongestConcatenatedWord().get(0);
-        List<String> actualFirstLongestConcatenatedWord = identicalLongestConcatenatedWord
+        List<String> actualFirstLongestConcatenatedWord = identicalLengthFileConcatenatedWord
                 .findFirstLongestConcatenatedWord();
 
         Assert.assertEquals(expectedResultsWithIdenticalLongestWords, actualFirstLongestConcatenatedWord);
