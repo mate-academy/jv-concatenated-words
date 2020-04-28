@@ -46,25 +46,25 @@ public class ConcatenatedWordsTest {
     @Test
     public void longestConcatenatedWord() {
         concatenatedWords = new ConcatenatedWords(listOfWords);
-        Assert.assertEquals("The longest concatenated word expected: ratcatdogcat" +
+        Assert.assertEquals("The longest concatenated word expected: \"ratcatdogcat\". " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 LONGEST_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
 
         concatenatedWords = new ConcatenatedWords(emptyListOfWords);
         Assert.assertEquals("The answer for the longest concatenated " +
-                        "word when empty list is empty string." +
+                        "word when empty list is empty string. " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
 
         concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
         Assert.assertEquals("The answer for the longest concatenated word " +
-                        "when there aren't concatenated words in list is empty string." +
+                        "when there aren't concatenated words in list is empty string. " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.longestConcatenatedWord());
 
         concatenatedWords = new ConcatenatedWords(listOfWordsWhereTheSameLengthOfConcatenatedWord);
-        Assert.assertEquals("The answer for the longest concatenated word " +
-                        "when there are concatenated words with same length." +
+        Assert.assertEquals("The answer for the longest concatenated word, " +
+                        "when there are concatenated words with same length, is \"ratcatdogcat\". " +
                         "But is: " + concatenatedWords.longestConcatenatedWord(),
                 LONGEST_CONCATENATED_WORD,
                 concatenatedWords.longestConcatenatedWord());
@@ -73,25 +73,25 @@ public class ConcatenatedWordsTest {
     @Test
     public void secondLongestConcatenatedWord() {
         concatenatedWords = new ConcatenatedWords(listOfWords);
-        Assert.assertEquals("The second longest concatenated word expected: catsdogcats" +
+        Assert.assertEquals("The second longest concatenated word expected: \"catsdogcats\". " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 SECOND_LONGEST_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
 
         concatenatedWords = new ConcatenatedWords(emptyListOfWords);
         Assert.assertEquals("The answer for the second longest concatenated " +
-                        "word when empty list is empty string." +
+                        "word when empty list is empty string. " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
 
         concatenatedWords = new ConcatenatedWords(listWithNoConcatenatedWords);
         Assert.assertEquals("The answer for the second longest concatenated word " +
-                        "when there aren't concatenated words in list is empty string." +
+                        "when there aren't concatenated words in list is empty string. " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 NO_CONCATENATED_WORD, concatenatedWords.secondLongestConcatenatedWord());
 
         concatenatedWords = new ConcatenatedWords(listOfWordsWhereTheSameLengthOfConcatenatedWord);
         Assert.assertEquals("The answer for the second longest concatenated word " +
-                        "when there are concatenated words with same length is: catdogcatrat." +
+                        "when there are concatenated words with same length is: \"catdogcatrat\". " +
                         "But is: " + concatenatedWords.secondLongestConcatenatedWord(),
                 SECOND_LONGEST_CONCATENATED_WORD_WHEN_SAME_LENGTH,
                 concatenatedWords.secondLongestConcatenatedWord());
