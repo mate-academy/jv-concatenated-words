@@ -1,7 +1,6 @@
 package core.basesyntax;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,15 +13,15 @@ public class ConcatenatedWordsTest {
     private final static String NO_CONCATENATED_WORD = "";
     private final static Integer TOTAL_COUNT_OF_CONCATENATED_WORDS = 3;
     private final static Integer TOTAL_COUNT_WHEN_NO_CONCATENATED_WORDS = 0;
-    private final static String[] ARRAY_OF_WORDS = {"cat", "cats", "catsdogcats",
+    private final static List<String> ARRAY_OF_WORDS = List.of("cat", "cats", "catsdogcats",
             "dog", "hippopotamuses", "rat",
-            "ratcatdogcat", "dogcatsdog"};
-    private final static String[] ARRAY_OF_NOCONCATENATED_WORDS = {"cat", "cats", "dog",
-            "hippopotamuses", "rat",};
-    private final static String[] ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH =
-            {"cat", "cats", "catsdogcats",
+            "ratcatdogcat", "dogcatsdog");
+    private final static List<String> ARRAY_OF_NOCONCATENATED_WORDS = List.of("cat", "cats", "dog",
+            "hippopotamuses", "rat");
+    private final static List<String> ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH =
+            List.of("cat", "cats", "catsdogcats",
                     "ratcatdogcat", "dog", "hippopotamuses",
-                    "rat", "ratcatdogcat", "dogcatsdog"};
+                    "rat", "ratcatdogcat", "dogcatsdog");
     private List<String> listOfWords;
     private List<String> emptyListOfWords;
     private List<String> listWithNoConcatenatedWords;
@@ -31,14 +30,14 @@ public class ConcatenatedWordsTest {
 
     @Before
     public void init() {
-        listOfWords = Arrays.asList(ARRAY_OF_WORDS);
+        listOfWords = List.copyOf(ARRAY_OF_WORDS);
 
         emptyListOfWords = new ArrayList<>();
 
-        listWithNoConcatenatedWords = Arrays.asList(ARRAY_OF_NOCONCATENATED_WORDS);
+        listWithNoConcatenatedWords = List.copyOf(ARRAY_OF_NOCONCATENATED_WORDS);
 
-        listOfWordsWhereTheSameLengthOfConcatenatedWord = Arrays.
-                asList(ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH);
+        listOfWordsWhereTheSameLengthOfConcatenatedWord =
+                List.copyOf(ARRAY_WITH_CONCATENATED_WORDS_OF_SAME_LENGTH);
     }
 
     @Test
