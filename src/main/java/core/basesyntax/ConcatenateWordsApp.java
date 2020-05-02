@@ -4,22 +4,24 @@ import java.util.List;
 
 public class ConcatenateWordsApp implements ConcatenateWordsInterface {
 
-    @Override
-    public void findConcatenateWords(String filePath) {
+    private List<String> wordsFromFile;
+
+    public ConcatenateWordsApp(List<String> wordsFromFile) {
+        this.wordsFromFile = wordsFromFile;
     }
 
     @Override
-    public List<String> findFirstLongestConcatenatedWord() {
+    public String findFirstLongestConcatenatedWord(List<String> concatenatedWords) {
         return null;
     }
 
     @Override
-    public int getConcatWordsCount() {
+    public String findSecondLongestConcatenatedWord(List<String> concatenatedWords) {
+        return null;
+    }
+
+    @Override
+    public int getConcatenatedWordsCount() {
         return 0;
-    }
-
-    @Override
-    public List<String> findSecondLongestConcatenatedWord() {
-        return null;
     }
 }

@@ -4,12 +4,10 @@ import java.util.List;
 
 public interface ConcatenateWordsInterface {
 
-    void findConcatenateWords(String filePath);
+    String findFirstLongestConcatenatedWord(List<String> concatenatedWords);
 
-    List<String> findFirstLongestConcatenatedWord();
+    String findSecondLongestConcatenatedWord(List<String> concatenatedWords);
 
-    int getConcatWordsCount();
-
-    List<String> findSecondLongestConcatenatedWord();
+    int getConcatenatedWordsCount();
 
 }
